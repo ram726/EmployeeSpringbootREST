@@ -29,10 +29,7 @@ class EmployeeApplicationTests
 	
 	@MockBean
 	private EmpDao dao;
-	
-	@Mock
-	private Optional<Employee> optionalEmp;
-	
+
 	//test case for get all employee
    @Test
     public void getEmployeeTest()
