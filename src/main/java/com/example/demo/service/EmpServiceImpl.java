@@ -25,7 +25,7 @@ public class EmpServiceImpl implements EmpService
 	@Override
 	public Employee getEmployee(int empId)
 	{
-		return dao.findById(empId).get();
+		return dao.getById(empId);
 	}
 	
 	//adding one emp record into the database

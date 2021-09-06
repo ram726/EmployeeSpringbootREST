@@ -2,9 +2,12 @@ package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,10 +32,7 @@ class EmployeeApplicationTests
 	
 	@MockBean
 	private EmpDao dao;
-	
-	@Mock
-	private Optional<Employee> optionalEmp;
-	
+
 	//test case for get all employee
    @Test
     public void getEmployeeTest()
@@ -50,12 +50,9 @@ class EmployeeApplicationTests
    @Test
    public void getEmployeeByIdTest(){
 	   Employee emp= new Employee(1, "Sachin", "Tendulkar", "st@email.com");
-	   Integer i=1;
-	  when(dao.findById(i).get()).thenReturn(emp);
-	  
-	  Employee e1=service.getEmployee(i);
-	  
-	  assertEquals(emp,e1);
+	   when(dao.getById(emp.getId())).thenReturn(emp);
+	   		
+	   assertEquals(emp, service.getEmployee(emp.getId()));
    }
    
    //test case adding one emp record into the database
@@ -66,15 +63,6 @@ class EmployeeApplicationTests
 	   when(dao.save(emp)).thenReturn(emp);
 	   
 	   assertEquals(emp, service.addEmployee(emp));
-   }
-   
-   //test case for updating employee record by id
-   @Test
-   public void updateEmployeeTest(){
-       Employee emp = dao.getById(1);
-       emp.setEmailId("ram@gmail.com");
-       Employee empUpdated =  dao.save(emp);
-       assertThat(empUpdated.getEmailId()).isEqualTo("ram@gmail.com");
    }
    
    //test case for deleting employee record by id
