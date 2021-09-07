@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import static javafx.beans.binding.Bindings.when;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

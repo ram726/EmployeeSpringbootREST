@@ -14,21 +14,18 @@ public class EmpServiceImpl implements EmpService
 	@Autowired
 	private EmpDao dao;
 	
-	//fetching all emp record
 	@Override
 	public List<Employee> getEmployee() 
 	{
 		return dao.findAll();//
 	}
 	
-	//fetching one emp record by using emp id
 	@Override
 	public Employee getEmployee(int empId)
 	{
 		return dao.getById(empId);
 	}
 	
-	//adding one emp record into the database
 	@Override
 	public Employee addEmployee(Employee emp) 
 	{
@@ -36,7 +33,6 @@ public class EmpServiceImpl implements EmpService
 		return emp;
 	}
 	
-	//updating employee record by id
 	@Override
 	public Employee updateEmployee(int id, Employee e)
 	{
@@ -47,7 +43,6 @@ public class EmpServiceImpl implements EmpService
 		return dao.save(emp);
 	}
 	
-	//deleting employee record by id
 	@Override
 	public void delteEmployee(int empId) 
 	{

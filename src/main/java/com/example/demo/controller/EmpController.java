@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,37 +25,32 @@ public class EmpController
 		return "This is Employee Home Page";
 	}
 	
-	//get the all employee
 	@GetMapping("/emp")
-	public List<Employee> getCourse()
+	public List<Employee> getEmp()
 	{ 
 		return this.service.getEmployee();
 	}
 	
-	//get emp by id
 	@GetMapping("/emp/{empId}")
-	public Employee getOneCourse(@PathVariable String empId)
+	public Employee getOneEmp(@PathVariable String empId)
 	{
 		return this.service.getEmployee(Integer.parseInt(empId));
 	}
 	
-	//add an emp and return the emp
 	@PostMapping("/emp")
-	public Employee addCourses(@RequestBody Employee emp)
+	public Employee addEmp(@RequestBody Employee emp)
 	{
 		return this.service.addEmployee(emp);
 	}
 	
-	//update emp by id using PUT request
 	@PutMapping("/emp/{empId}")
-	public Employee updateCourse(@PathVariable String empId,@RequestBody Employee emp)
+	public Employee updateEmp(@PathVariable String empId,@RequestBody Employee emp)
 	{
 		return this.service.updateEmployee(Integer.parseInt(empId),emp);
 	}
-	
-	//delete emp by id
+
 	@DeleteMapping("/emp/{empId}")
-	public void deleteCourse(@PathVariable String empId)
+	public void deleteEmp(@PathVariable String empId)
 	{
 		this.service.delteEmployee(Integer.parseInt(empId));
 	}
