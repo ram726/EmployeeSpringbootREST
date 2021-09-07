@@ -27,14 +27,12 @@ import com.example.demo.service.EmpService;
 @SpringBootTest
 class EmployeeApplicationTests 
 {
-	
 	@Autowired
 	private EmpService service;
 	
 	@MockBean
 	private EmpDao dao;
 
-	//test case for get all employee
    @Test
     public void getEmployeeTest()
     {
@@ -42,33 +40,24 @@ class EmployeeApplicationTests
     	.thenReturn( Stream
     			.of(new Employee(1, "Sachin", "Tendulkar", "st@email.com"))
     			.collect(Collectors.toList()));
-    	
     	assertEquals(1, service.getEmployee().size());
-    	
     }
    
-   //test case for get employee by id
    @Test
    public void getEmployeeByIdTest(){
 	   Employee emp= new Employee(1, "Sachin", "Tendulkar", "st@email.com");
 	   when(dao.getById(emp.getId())).thenReturn(emp);
-	   		
 	   assertEquals(emp, service.getEmployee(emp.getId()));
    }
-   
-   //test case adding one emp record into the database
    @Test
    public void addEmployeeTest()
    {
 	   Employee emp= new Employee(1, "Sachin", "Tendulkar", "st@email.com");
 	   when(dao.save(emp)).thenReturn(emp);
-	   
 	   assertEquals(emp, service.addEmployee(emp));
    }
-   
-   //test case for deleting employee record by id
    @Test
-   public void delteEmployeeByIdTest()
+   public void deleteEmployeeByIdTest()
    {
 	   Employee emp= new Employee(1, "Sachin", "Tendulkar", "st@email.com");
 	   service.delteEmployee(emp.getId());
