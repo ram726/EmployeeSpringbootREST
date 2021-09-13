@@ -29,10 +29,8 @@ class EmployeeApplicationTests
 {
 	@Autowired
 	private EmpService service;
-	
 	@MockBean
 	private EmpDao dao;
-
    @Test
     public void getEmployeeTest()
     {
@@ -42,7 +40,6 @@ class EmployeeApplicationTests
     			.collect(Collectors.toList()));
     	assertEquals(1, service.getEmployee().size());
     }
-   
    @Test
    public void getEmployeeByIdTest(){
 	   Employee emp= new Employee(1, "Sachin", "Tendulkar", "st@email.com");
