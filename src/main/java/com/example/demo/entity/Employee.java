@@ -1,8 +1,5 @@
 package com.example.demo.entity;
-
 import lombok.*;
-import net.bytebuddy.implementation.bind.annotation.AllArguments;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
