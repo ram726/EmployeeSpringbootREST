@@ -1,0 +1,60 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-09-30T13:13:19.821Z",
+        "line": 5,
+        "name": "",
+        "description": "",
+        "id": "create-an-employee-record;",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 590000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Enter the employee record",
+            "match": {
+              "location": "cucumber.MyStepdefs.enterTheEmployeeRecord()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\r\n\tat cucumber.MyStepdefs.employeeRecordSaveIntoTheDatabase(MyStepdefs.java:37)\r\n\tat ✽.employee record save into the database(file:///D:/WorkSpaces/Springboot/Employee/src/test/resources/features/EmployeeFeature.feature:7)\r\n",
+              "duration": 216000000,
+              "status": "failed"
+            },
+            "line": 7,
+            "name": "employee record save into the database",
+            "match": {
+              "location": "cucumber.MyStepdefs.employeeRecordSaveIntoTheDatabase()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "validate the employee record.",
+            "match": {
+              "location": "cucumber.MyStepdefs.validateTheEmployeeRecord()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Create an Employee Record",
+    "description": "  This microservice provide the service to create an employee\n  based on some record like EmployeeId, FirstName, LastName, EmailId\n  Where EmployeeId is autogenerate and validate the employee data.",
+    "id": "create-an-employee-record",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/EmployeeFeature.feature",
+    "tags": []
+  }
+]
